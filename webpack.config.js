@@ -1,21 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const base = require("./webpack.config.base.js");
 module.exports = {
+  ...base,
   mode: "development",
-  entry: "./src/index.js",
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist",
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "王月",
-      template: "src/assets/index.html",
-    }),
-  ],
-  output: {
-    filename: "index.[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
